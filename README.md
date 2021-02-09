@@ -116,8 +116,8 @@ To run without GPU (so quite slowly) and without output record to the file use n
 Please check your web camera dev/video0 before run.
 This code uses pretarined 21-styles MXNet model from directory models/21styles.params.
 
-0. Train the model
+0. To run without GPU (so quite slowly) and without output record to the file use no parameters:
 	```bash
-	python main.py train --epochs 4
+	python camera_demo.py
 	```
     
