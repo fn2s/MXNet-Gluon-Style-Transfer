@@ -1,3 +1,6 @@
 numpy
 mxnet
 PIL
+click
+opencv-python
+pynvml
