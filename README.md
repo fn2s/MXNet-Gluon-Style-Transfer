@@ -103,21 +103,16 @@ The code is mainly modified from [PyTorch-Style-Transfer](https://github.com/zha
 
 ### Stylize Web-Camera Stream Using Pre-trained MSG-Net
 
-To run using CUDA GPU:
-
+0. To run using CUDA GPU with record to local file:
+	```bash
 	python camera_demo.py --record --cuda
+	```
 640x480 video works fine with just 2 GB GPU RAM. GPU utilization quite high, so MXNet rules !
 PyTorch implemetation requires much more RAM then MXNet for such inference.
 
-To run without GPU (so quite slowly) and without output record to the file use no parameters:
-
-
-	python camera_demo.py
-Please check your web camera dev/video0 before run.
-This code uses pretarined 21-styles MXNet model from directory models/21styles.params.
-
-0. To run without GPU (so quite slowly) and without output record to the file use no parameters:
+1. To run without GPU (so quite slowly) and without output record to the file use no parameters:
 	```bash
 	python camera_demo.py
 	```
-    
+Please check your web camera dev/video0 before run.
+This code uses pretrained 21-styles MXNet model from directory models/21styles.params.
