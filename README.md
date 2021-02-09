@@ -1,4 +1,4 @@
-# MXNet-Gluon-Style-Transfer
+# MXNet-Gluon-Style-Transfer with VIDEO stylization added
 
 This repo has been included in official [MXNet repo](https://github.com/apache/incubator-mxnet/tree/master/example/gluon/style_transfer), which provides the implementations of **[MSG-Net](#real-time-style-transfer)** and **[Neural Style Transfer](#neural-style)**. We also provide [PyTorch](https://github.com/zhanghang1989/PyTorch-Style-Transfer) and [Torch](https://github.com/zhanghang1989/MSG-Net/) implementations.
 
@@ -100,3 +100,15 @@ python main.py optim --content-image images/content/venice-boat.jpg --style-imag
 
 
 The code is mainly modified from [PyTorch-Style-Transfer](https://github.com/zhanghang1989/PyTorch-Style-Transfer).
+
+### Stylize Web-Camera Stream Using Pre-trained MSG-Net
+
+To run using CUDA GPU:
+    python camera_demo.py --record --cuda
+640x480 video works fine with just 2 GB GPU RAM. GPU utilization quite high, so MXNet rules !
+PyTorch implemetation requires much more RAM then MXNet for such inference.
+
+To run without GPU (so quite slowly) and without output record to the file use no parameters:
+    python camera_demo.py
+Please check your web camera dev/video0 before run.
+This code uses pretarined 21-styles MXNet model from directory models/21styles.params.
