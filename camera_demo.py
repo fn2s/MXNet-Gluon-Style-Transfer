@@ -8,7 +8,8 @@ from utils import StyleLoader
 @click.command(help="""
     Takes web-camera dev/video0 stream and stylizes it according to pretrained MXNet model. 
     By default it's 21-styles model from  https://github.com/StacyYang/MXNet-Gluon-Style-Transfer \n
-    Output stream combines input & stylized video  as well as style image  """)
+    Output stream combines input & stylized video  as well as style image \n
+    Press ESC key to stop   """)
 @click.option('--cuda', is_flag=True, help='to use CUDA GPU, by default uses CPU')
 @click.option('--record', is_flag=True, help='to write video to "output.mp4" file ')
 def run_demo(cuda, record):
