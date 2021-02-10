@@ -38,7 +38,7 @@ def train(args):
     style_model.initialize(init=mx.initializer.MSRAPrelu(), ctx=ctx)
     if args.resume is not None:
         print('Resuming, initializing using weight from {}.'.format(args.resume))
-        style_model.load_params(args.resume, ctx=ctx)
+        style_model.load_parameters(args.resume, ctx=ctx)
     print('style_model:',style_model)
     # optimizer and loss
     trainer = gluon.Trainer(style_model.collect_params(), 'adam',
@@ -126,7 +126,7 @@ def evaluate(args):
     style_image = utils.preprocess_batch(style_image)
     # model
     style_model = net.Net(ngf=args.ngf)
-    style_model.load_params(args.model, ctx=ctx)
+    style_model.load_parameters(args.model, ctx=ctx)
     # forward
     style_model.set_target(style_image)
     output = style_model(content_image)
