@@ -11,7 +11,7 @@ from utils import StyleLoader
     Output stream combines input & stylized video  as well as style image \n
     Press ESC key to stop   """)
 @click.option('--cuda', is_flag=True, help='to use CUDA GPU, by default uses CPU')
-@click.option('--record', is_flag=True, help='to write video to "output.mp4" file ')
+@click.option('--record', is_flag=True, help='to write video to "video/output.mp4" file ')
 def run_demo(cuda, record):
 	if cuda:
 		ctx = mx.gpu(0); os.environ['MXNET_CUDNN_AUTOTUNE_DEFAULT'] = '0'
@@ -31,8 +31,14 @@ def run_demo(cuda, record):
 	width = int(4.0/3*demo_size)
 	swidth = int(width/4); sheight = int(height/4)
 	if record:
+		vDir, vFile = './video/', 'output.mp4'
+		vPath = vDir + vFile
+		try:
+			if not os.path.exists(vDir):
+				os.makedirs(vDir)    
+		except OSError as e:  print(e); sys.exit(1)                
 		fourcc = cv2.VideoWriter_fourcc('m','p','4','v')
-		out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (2*width, height))
+		out = cv2.VideoWriter(vPath, fourcc, 20.0, (2*width, height))
 	cam = cv2.VideoCapture(0)
 	cam.set(3, width); cam.set(4, height)
 	key, idx = 0, 0
