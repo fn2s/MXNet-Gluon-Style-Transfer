@@ -67,8 +67,9 @@ def run_demo(cuda, record):
 
 		# display
 		simg = cv2.resize(simg,(swidth, sheight), interpolation = cv2.INTER_CUBIC)
+        simg = cv2.cvtColor(simg, cv2.COLOR_BGR2RGB)
 		cimg[0:sheight,0:swidth,:]=simg
-		img = np.concatenate((cimg,img),axis=1)
+		img = np.concatenate((cimg, cv2.COLOR_BGR2RGB)),axis=1)
 		cv2.imshow(wName, img)
 		key = cv2.waitKey(1)
 		if record:
