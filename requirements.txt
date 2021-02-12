@@ -4,3 +4,5 @@ PIL
 click
 opencv-python
 pynvml
+shutil
+moviepy.editor
