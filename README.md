@@ -116,3 +116,13 @@ PyTorch implemetation requires much more RAM then MXNet for such inference.
 	```
 Please check your web camera dev/video0 before run.
 This code uses pretrained 21-styles MXNet model from directory models/21styles.params.
+
+### Stylize Video File Using Pre-trained MSG-Net
+
+Similar to previous camera stream stylization, but uses .avi or .mp4 video file as input.
+Input and output files placed in ./video/ directory.
+Sound transferred unchanged.
+0. To run using CUDA GPU with record to file './video/output21-input_video.mp4':
+	```bash
+	python video_demo.py --record --cuda input_video.mp4
+	```
